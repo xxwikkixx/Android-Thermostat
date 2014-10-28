@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res" >
+            <file
+                name="arrowdown"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-hdpi\arrowdown.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowdown1"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-hdpi\arrowdown1.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowup"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-hdpi\arrowup.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowup1"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-hdpi\arrowup1.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-hdpi\ic_launcher.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowdown"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-ldpi\arrowdown.png"
+                qualifiers="ldpi-v4"
+                type="drawable" />
+            <file
+                name="arrowdown1"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-ldpi\arrowdown1.png"
+                qualifiers="ldpi-v4"
+                type="drawable" />
+            <file
+                name="arrowup"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-ldpi\arrowup.png"
+                qualifiers="ldpi-v4"
+                type="drawable" />
+            <file
+                name="arrowup1"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-ldpi\arrowup1.png"
+                qualifiers="ldpi-v4"
+                type="drawable" />
+            <file
+                name="arrowdown"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-mdpi\arrowdown.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowdown1"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-mdpi\arrowdown1.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowup"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-mdpi\arrowup.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowup1"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-mdpi\arrowup1.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-mdpi\ic_launcher.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowdown"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-xhdpi\arrowdown.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowdown1"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-xhdpi\arrowdown1.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowup"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-xhdpi\arrowup.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowup1"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-xhdpi\arrowup1.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-xhdpi\ic_launcher.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowdown"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-xxhdpi\arrowdown.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowdown1"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-xxhdpi\arrowdown1.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowup"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-xxhdpi\arrowup.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="arrowup1"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-xxhdpi\arrowup1.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\drawable-xxhdpi\ic_launcher.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="activity_homescreen"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\layout\activity_homescreen.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_main"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\layout\activity_main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="list_item"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\layout\list_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="helpscreen"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\menu\helpscreen.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="homescreen"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\menu\homescreen.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="main"
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\menu\main.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\values\dimens.xml"
+                qualifiers="" >
+                <dimen name="activity_horizontal_margin" >16dp
+                </dimen>
+                <dimen name="activity_vertical_margin" >16dp
+                </dimen>
+            </file>
+            <file
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\values\strings.xml"
+                qualifiers="" >
+                <string name="action_settings" >Settings
+                </string>
+                <string name="app_name" >Thermostat
+                </string>
+                <string name="hello_world" >Hello world!
+                </string>
+            </file>
+            <file
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\values\styles.xml"
+                qualifiers="" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Light" >
+
+                    <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+                    -->
+                </style>
+
+                <style
+                    name="AppTheme"
+                    parent="AppBaseTheme" >
+
+                    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+                </style>
+            </file>
+            <file
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\values-sw720dp-land\dimens.xml"
+                qualifiers="sw720dp-land-v13" >
+                <dimen name="activity_horizontal_margin" >128dp
+                </dimen>
+            </file>
+            <file
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\values-v11\styles.xml"
+                qualifiers="v11" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Holo.Light" >
+
+                    <!-- API 11 theme customizations can go here. -->
+                </style>
+            </file>
+            <file
+                path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\res\values-v14\styles.xml"
+                qualifiers="v14" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Holo.Light.DarkActionBar" >
+
+                    <!-- API 14 theme customizations can go here. -->
+                </style>
+            </file>
+        </source>
+        <source path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\build\generated\res\rs\debug" />
+        <source path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\build\generated\res\generated\debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="C:\Users\ABC\Desktop\Dropbox\Thermostat Project\Thermostat\build-types\debug\res" />
+    </dataSet>
+
+</merger>

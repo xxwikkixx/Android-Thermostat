@@ -1,0 +1,160 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ecf0f1"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/butUp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/arrowup" />
+
+    <ToggleButton
+        android:id="@+id/toggleHeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/butConnectBlue"
+        android:layout_toLeftOf="@+id/butConnectBlue"
+        android:text="ToggleButton"
+        android:textOff="HEAT"
+        android:textOn="HEAT" />
+
+    <Button
+        android:id="@+id/butConnectBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textUserTemp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:onClick="ConnectBlue"
+        android:text="Bluetooth" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/butConnectBlue"
+        android:layout_alignRight="@+id/toggleHeat"
+        android:layout_marginBottom="21dp"
+        android:text="ToggleButton"
+        android:textOff="FAN"
+        android:textOn="FAN" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/toggleButton1"
+        android:layout_alignBottom="@+id/toggleButton1"
+        android:layout_alignLeft="@+id/butConnectBlue"
+        android:layout_alignRight="@+id/butConnectBlue"
+        android:textOn="AWAY"
+		android:textOff="AWAY"
+        android:text="ToggleButton" />
+
+    <TextView
+        android:id="@+id/txtOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/butUp"
+        android:layout_marginRight="99dp"
+        android:layout_toLeftOf="@+id/toggleButton2"
+        android:text="Outdoor Temperature"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#2EAAFF" />
+
+    <TextView
+        android:id="@+id/textHumid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textRoomTemp"
+        android:layout_alignRight="@+id/textRoomTemp"
+        android:layout_below="@+id/textRoomTemp"
+        android:text="Humidity: 45%"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#2EAAFF" />
+
+    <TextView
+        android:id="@+id/txtInd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Indoor Temperature"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#2EAAFF"
+        android:layout_alignBaseline="@+id/butUp"
+        android:layout_alignBottom="@+id/butUp"
+        android:layout_alignLeft="@+id/textRoomTemp"
+        android:layout_alignStart="@+id/textRoomTemp"
+        android:layout_alignRight="@+id/textRoomTemp"
+        android:layout_alignEnd="@+id/textRoomTemp" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/toggleButton1"
+        android:layout_alignBottom="@+id/toggleButton1"
+        android:layout_toLeftOf="@+id/toggleButton1"
+        android:text="ToggleButton"
+        android:textOff="AUTO"
+        android:textOn="AUTO"
+        android:checked="false" />
+
+    <ToggleButton
+        android:id="@+id/toggleCool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/toggleHeat"
+        android:layout_alignBottom="@+id/toggleHeat"
+        android:layout_toLeftOf="@+id/toggleHeat"
+        android:text="ToggleButton"
+        android:textOff="COOL"
+        android:textOn="COOL" />
+
+    <TextView
+        android:id="@+id/textRoomTemp"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_alignTop="@+id/butUp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="42dp"
+        android:layout_toLeftOf="@+id/txtOut"
+        android:gravity="center"
+        android:text="68°"
+        android:textColor="#2EAAFF"
+        android:textSize="170sp" />
+
+    <Button
+        android:id="@+id/butDown"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/butUp"
+        android:layout_below="@+id/textUserTemp"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/arrowdown" />
+
+    <TextView
+        android:id="@+id/textUserTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/butUp"
+        android:layout_below="@+id/butUp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="24dp"
+        android:text="65°"
+        android:textColor="#2EAAFF"
+        android:textSize="50sp" />
+
+</RelativeLayout>
