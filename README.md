@@ -9,5 +9,5 @@ Arduino and Android combined thermostat.
 
   Import in Adt or Android Studio
 
-  Use Android API 19
+  Use Android API 18
   
