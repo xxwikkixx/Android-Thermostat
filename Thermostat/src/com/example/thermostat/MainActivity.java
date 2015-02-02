@@ -90,7 +90,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main2);
 
 		//testing
 
@@ -259,7 +259,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		{
 			data = "2";
 		}
-	} 
+	}
 
 
 	/*

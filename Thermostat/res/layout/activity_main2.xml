@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="275dp"
+        android:id="@+id/topbar1"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/topbar"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textRoomTemp"
+        android:gravity="center"
+        android:text="68°"
+        android:textColor="#f2f6fb"
+        android:textSize="130sp"
+        android:layout_marginTop="65dp"
+        android:layout_marginLeft="393dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textHumid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Humidity: 45%"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#f2f6fb"
+        android:layout_below="@+id/textRoomTemp"
+        android:layout_marginTop="-8dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/butUp"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:background="@drawable/arrowup"
+        android:layout_below="@+id/topbar1"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@+id/butDown"
+        android:layout_alignStart="@+id/butDown" />
+
+    <Button
+        android:id="@+id/butDown"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:background="@drawable/arrowdown"
+        android:layout_marginBottom="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="67dp"
+        android:layout_height="50dp"
+        android:background="@drawable/home"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
+
+
+</RelativeLayout>
