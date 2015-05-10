@@ -1,6 +1,7 @@
 package com.mawsom.mawsom.mawsomnobl;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,13 +38,18 @@ import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.mawsom.mawsom.mawsomnobl.data.Channel;
+import com.mawsom.mawsom.mawsomnobl.data.Item;
+import com.mawsom.mawsom.mawsomnobl.service.WeatherServiceCallBack;
+import com.mawsom.mawsom.mawsomnobl.service.YahooWeatherService;
 
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener, WeatherServiceCallBack {
 
     private static final String TAG = "MainActivity";
     private int mMaxChars = 50000;//Default
@@ -82,11 +88,18 @@ public class MainActivity extends Activity implements OnClickListener {
     OutputStream outStream = null;
     InputStream inStream = null;
 
+    private ImageView weatherIconImageView;
+    private TextView OutTempView;
+    private TextView cityTextView;
+
+    private YahooWeatherService service;
+    private ProgressDialog dialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
         //testing
 
@@ -116,6 +129,18 @@ public class MainActivity extends Activity implements OnClickListener {
 
         //checking bluetooth state
         //checkBTState();
+
+
+        weatherIconImageView = (ImageView) findViewById(R.id.weatherIcon);
+        OutTempView = (TextView) findViewById(R.id.textOutTemp);
+        cityTextView = (TextView) findViewById(R.id.textCIty);
+
+        service = new YahooWeatherService(this);
+        //dialog.setMessage("Loading...");
+
+
+        //need to send in location to this service by geolocation in android service
+        service.refreshWeather("Blue Bell, PA");
 
         tempCheck();
 
@@ -255,6 +280,23 @@ public class MainActivity extends Activity implements OnClickListener {
         {
             data = "2";
         }
+    }
+
+    @Override
+    public void serviceSucess(Channel channel) {
+        //dialog.hide();
+        Item item = channel.getItem();
+        int resourceId = getResources().getIdentifier("drawable/icon_" + item.getCondition().getCode(), null, getPackageName());
+        @SuppressWarnings("deprecation")
+        Drawable weatherIconDrawble = getResources().getDrawable(resourceId);
+        weatherIconImageView.setImageDrawable(weatherIconDrawble);
+        OutTempView.setText(item.getCondition().getTemperature() + "\u00B0" + channel.getUnits().getTemperature());
+        cityTextView.setText(service.getLocation());
+    }
+
+    @Override
+    public void serviceFailure(Exception exception) {
+        //Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
     }
 
 

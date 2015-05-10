@@ -19,7 +19,34 @@ package com.mawsom.mawsom.mawsomnobl;
  * same average temp algorithm used for normal methods. 
  */
 
+import java.io.FileWriter;
 
 public class TempCheck {
+
+    public void ACTemp(int TargetTemp, int RoomTemp, int OutsideTemp){
+        /*
+        ** if AC is on this function will do the AC temperature
+         */
+    }
+
+    public void HeatTemp(int TargetTemp, int RoomTemp, int OutsideTemp){
+
+    }
+
+    public void AutoTemp(int TargetTemp, int RoomTemp, int OutsideTemp){
+
+    }
+
+    /*
+    ** 1. Record: Month | Day | Date | Time | RoomTemp | TargetTemp | OutsideTemp | InHumid | OutHumid
+    ** 2. Create Folder for each Month and inside for Each Day Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
+    ** 3. Create CSV files for the data from step 1
+     */
+    public void RecordTemp(int TargetTemp, int RoomTemp, int OutsideTemp, int OutsideHumid, int InsideHumid){
+        String Date;
+        String Time;
+        FileWriter fw;
+
+    }
 
 }

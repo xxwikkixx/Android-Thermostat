@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgg"
+    tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -19,10 +23,21 @@
         android:text="68°"
         android:textColor="#f2f6fb"
         android:textSize="130sp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="57dp"
         android:layout_marginLeft="393dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textUserTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="65°"
+        android:textColor="#2EAAFF"
+        android:textSize="50sp"
+        android:layout_below="@+id/topbar1"
+        android:layout_alignLeft="@+id/imageButton"
+        android:layout_alignStart="@+id/imageButton" />
 
     <TextView
         android:id="@+id/textHumid"
@@ -38,22 +53,25 @@
 
     <Button
         android:id="@+id/butUp"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/arrowup"
-        android:layout_below="@+id/topbar1"
-        android:layout_marginTop="10dp"
-        android:layout_alignLeft="@+id/butDown"
-        android:layout_alignStart="@+id/butDown" />
+        android:layout_marginLeft="128dp"
+        android:layout_marginStart="128dp"
+        android:layout_alignBottom="@+id/textRoomTemp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/butDown"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/arrowdown"
-        android:layout_marginBottom="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginRight="128dp"
+        android:layout_marginEnd="128dp"
+        android:layout_alignBottom="@+id/textRoomTemp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -64,5 +82,56 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="11dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/City"
+        android:id="@+id/textCIty"
+        android:typeface="sans"
+        android:textSize="40dp"
+        android:textColor="#2EAAFF"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_above="@+id/textDat"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Date"
+        android:id="@+id/textDat"
+        android:typeface="sans"
+        android:textSize="25dp"
+        android:textColor="#2EAAFF"
+        android:layout_above="@+id/weatherIcon"
+        android:layout_alignLeft="@+id/textCIty"
+        android:layout_alignStart="@+id/textCIty" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weatherIcon"
+        android:src="@drawable/na"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textDat"
+        android:layout_alignStart="@+id/textDat"
+        android:layout_marginBottom="39dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/OutTemp"
+        android:id="@+id/textOutTemp"
+        android:typeface="sans"
+        android:textSize="80dp"
+        android:textColor="#2EAAFF"
+        android:layout_alignTop="@+id/weatherIcon"
+        android:layout_toRightOf="@+id/weatherIcon"
+        android:layout_toEndOf="@+id/weatherIcon"
+        android:layout_marginTop="15dp" />
 
 </RelativeLayout>

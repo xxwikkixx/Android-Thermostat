@@ -130,12 +130,10 @@ public class MainActivity extends Activity implements OnClickListener {
 				if(targetTemp != RoomTemp)
 				{
 					//data = "2";
-					
 				}
 				else 
 				{
 					//data = "2";
-					
 				} 
 			}
 		});
@@ -157,7 +155,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			}
 		});
 
-
 		//button down to send data to arduino
 		butDown.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -172,7 +169,6 @@ public class MainActivity extends Activity implements OnClickListener {
 					//temp = "0";
 					//break;
 				}
-
 			}
 		});
 		butDown.setOnTouchListener(new OnTouchListener() {
@@ -199,7 +195,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	{
 		Intent Bluebutton = new Intent(MainActivity.this, BluetoothActivity.class);
 		startActivity(Bluebutton);
-
+        finish();
 	}
 
 	//checking if bluetooth is on or off
@@ -260,7 +256,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			data = "2";
 		}
 	}
-
 
 	/*
 	 * Sending the strings out to arduino via bluetooth
@@ -361,14 +356,11 @@ public class MainActivity extends Activity implements OnClickListener {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} 
-
+			}
 		}
-
 		public void stop() {
 			bStop = true;
 		}
-
 	}
 
 	/*
@@ -380,34 +372,27 @@ public class MainActivity extends Activity implements OnClickListener {
 		@Override
 		protected void onPreExecute() {
 		}
-
 		@Override
 		protected Void doInBackground(Void... params) {
-
 			if (mReadThread != null) {
 				mReadThread.stop();
 				while (mReadThread.isRunning())
 					; // Wait until it stops
 				mReadThread = null;
-
 			}
 			if(mSendThread != null){
 				mSendThread.stop();
 				while(mSendThread.isRunning());
 				mSendThread = null;
-
 			}
-
 			try {
 				mBTSocket.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 			return null;
 		}
-
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
@@ -416,7 +401,6 @@ public class MainActivity extends Activity implements OnClickListener {
 				finish();
 			}
 		}
-
 	}
 
 	private void msg(String s) {
@@ -427,7 +411,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onPause() {
 		if (mBTSocket != null && mIsBluetoothConnected) {
 			new DisConnectBT().execute();
-			
 			//need to setup sending strings again once the activity resumes.
 		}
 		Log.d(TAG, "Paused");
@@ -438,7 +421,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onResume() {
 		if (mBTSocket == null || !mIsBluetoothConnected) {
 			new ConnectBT().execute();
-			
 			//need to setup sending strings again once the activity resumes.
 		}
 		Log.d(TAG, "Resumed");
@@ -481,7 +463,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			}
 			return null;
 		}
-
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
@@ -495,9 +476,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				mReadThread = new ReadInput();
 				mSendThread = new SendOut();
 			}
-
 			progressDialog.dismiss();
 		}
-
 	}
 }

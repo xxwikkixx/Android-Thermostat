@@ -87,7 +87,6 @@ public class BluetoothActivity extends Activity {
 
 		mBtnSearch = (Button) findViewById(R.id.btnSearch);
 		mBtnConnect = (Button) findViewById(R.id.btnConnect);
-
 		mLstDevices = (ListView) findViewById(R.id.lstDevices);
 		/*
 		 *Check if there is a savedInstanceState. If yes, that means the onCreate was probably triggered by a configuration change
