@@ -212,15 +212,12 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         });
     }
 
-
     //Starts bluetooth activity to connect to arduino
     public void ConnectBlue(View view)
     {
         //Intent Bluebutton = new Intent(MainActivity.this, BluetoothActivity.class);
         //finish(); //stops the main activity and starts the bluetooth activity
         //startActivity(Bluebutton);
-
-
     }
 
     //checking if bluetooth is on or off
@@ -244,8 +241,6 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         Toast.makeText(getBaseContext(), title + " - " + message, Toast.LENGTH_LONG).show();
         finish();
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
