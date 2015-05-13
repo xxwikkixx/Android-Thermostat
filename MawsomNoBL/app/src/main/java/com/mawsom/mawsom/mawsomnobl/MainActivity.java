@@ -217,7 +217,9 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
     public void ConnectBlue(View view)
     {
         //Intent Bluebutton = new Intent(MainActivity.this, BluetoothActivity.class);
+        //finish(); //stops the main activity and starts the bluetooth activity
         //startActivity(Bluebutton);
+
 
     }
 

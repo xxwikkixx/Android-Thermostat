@@ -54,6 +54,8 @@ public class TempCheck {
     public void RecordTemp(int TargetTemp, int RoomTemp, int OutsideTemp, int OutsideHumid, int InsideHumid){
         String Date;
         String Time;
+
+
     }
 
 }
