@@ -151,12 +151,10 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
                 if(targetTemp != RoomTemp)
                 {
                     //data = "2";
-
                 }
                 else
                 {
                     //data = "2";
-
                 }
             }
         });
@@ -231,7 +229,6 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         } else {
             if (btAdapter.isEnabled()) {
                 Log.d(TAG, "...Bluetooth ON...");
-
             } else {
                 //Prompt user to turn on Bluetooth
                 Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -312,7 +309,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         private boolean sStop = false;
         private Thread I;
 
-        String temp = "t";
+         String temp = "t";
 
         public SendOut(){
             I = new Thread(this, "Output Thread");

@@ -19,6 +19,16 @@
         android:layout_marginTop="26dp"
         android:background="@drawable/arrowup" />
 
+    <Button
+        android:id="@+id/butConnectBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textUserTemp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:onClick="ConnectBlue"
+        android:text="Bluetooth" />
+
     <ToggleButton
         android:id="@+id/toggleHeat"
         android:layout_width="wrap_content"
@@ -29,15 +39,7 @@
         android:textOff="HEAT"
         android:textOn="HEAT" />
 
-    <Button
-        android:id="@+id/butConnectBlue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textUserTemp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:onClick="ConnectBlue"
-        android:text="Bluetooth" />
+
 
     <ToggleButton
         android:id="@+id/toggleButton1"
@@ -61,6 +63,28 @@
         android:textOn="AWAY"
         android:textOff="AWAY"
         android:text="ToggleButton" />
+    <ToggleButton
+        android:id="@+id/toggleButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/toggleButton1"
+        android:layout_alignBottom="@+id/toggleButton1"
+        android:layout_toLeftOf="@+id/toggleButton1"
+        android:text="ToggleButton"
+        android:textOff="AUTO"
+        android:textOn="AUTO"
+        android:checked="false" />
+
+    <ToggleButton
+        android:id="@+id/toggleCool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/toggleHeat"
+        android:layout_alignBottom="@+id/toggleHeat"
+        android:layout_toLeftOf="@+id/toggleHeat"
+        android:text="ToggleButton"
+        android:textOff="COOL"
+        android:textOn="COOL" />
 
     <TextView
         android:id="@+id/txtOut"
@@ -98,28 +122,7 @@
         android:layout_alignLeft="@+id/textRoomTemp"
         android:layout_alignRight="@+id/textRoomTemp" />
 
-    <ToggleButton
-        android:id="@+id/toggleButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/toggleButton1"
-        android:layout_alignBottom="@+id/toggleButton1"
-        android:layout_toLeftOf="@+id/toggleButton1"
-        android:text="ToggleButton"
-        android:textOff="AUTO"
-        android:textOn="AUTO"
-        android:checked="false" />
 
-    <ToggleButton
-        android:id="@+id/toggleCool"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/toggleHeat"
-        android:layout_alignBottom="@+id/toggleHeat"
-        android:layout_toLeftOf="@+id/toggleHeat"
-        android:text="ToggleButton"
-        android:textOff="COOL"
-        android:textOn="COOL" />
 
     <TextView
         android:id="@+id/textRoomTemp"

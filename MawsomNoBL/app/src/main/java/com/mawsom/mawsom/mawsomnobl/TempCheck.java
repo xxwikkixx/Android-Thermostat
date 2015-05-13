@@ -19,6 +19,10 @@ package com.mawsom.mawsom.mawsomnobl;
  * same average temp algorithm used for normal methods. 
  */
 
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
+
+import java.io.File;
 import java.io.FileWriter;
 
 public class TempCheck {
@@ -27,6 +31,7 @@ public class TempCheck {
         /*
         ** if AC is on this function will do the AC temperature
          */
+
     }
 
     public void HeatTemp(int TargetTemp, int RoomTemp, int OutsideTemp){
@@ -38,15 +43,17 @@ public class TempCheck {
     }
 
     /*
-    ** 1. Record: Month | Day | Date | Time | RoomTemp | TargetTemp | OutsideTemp | InHumid | OutHumid
-    ** 2. Create Folder for each Month and inside for Each Day Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
-    ** 3. Create CSV files for the data from step 1
+    ** Record: Month | Day | Date | Time | RoomTemp | TargetTemp | OutsideTemp | InHumid | OutHumid
+    *   Record every hour for everyday for a month
+    *       average the data with that day and save it for that one month
+    *           check for abnormal data such as not being home for long periods of time or being on a vacation
+    *
+    ** Create Folder for each Month and inside for Each Day Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
+    ** Create CSV files for the data from step 1
      */
     public void RecordTemp(int TargetTemp, int RoomTemp, int OutsideTemp, int OutsideHumid, int InsideHumid){
         String Date;
         String Time;
-        FileWriter fw;
-
     }
 
 }
