@@ -36,6 +36,6 @@ public class locationManager implements LocationListener {
 
     @Override
     public void onProviderDisabled(String provider) {
-        
+
     }
 }

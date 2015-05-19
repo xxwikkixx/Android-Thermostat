@@ -48,6 +48,9 @@ import com.mawsom.mawsom.mawsomnobl.data.Item;
 import com.mawsom.mawsom.mawsomnobl.service.WeatherServiceCallBack;
 import com.mawsom.mawsom.mawsomnobl.service.YahooWeatherService;
 
+/**
+ * Created by Waqas
+ */
 
 public class MainActivity extends Activity implements OnClickListener, WeatherServiceCallBack {
 
@@ -95,7 +98,6 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
     private YahooWeatherService service;
     private ProgressDialog dialog;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,7 +142,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
 
 
         //need to send in location to this service by geolocation in android service
-        service.refreshWeather("Blue Bell, PA");
+        service.refreshWeather("San Diego, CA");
 
         tempCheck();
 
@@ -176,7 +178,6 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
             }
         });
 
-
         //button down to send data to arduino
         butDown.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -194,6 +195,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
 
             }
         });
+
         butDown.setOnTouchListener(new OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event){
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
@@ -224,7 +226,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
     private void checkBTState() {
         // Check for Bluetooth support and then check to make sure it is turned on
         if(btAdapter==null) {
-            errorExit("Fatal Error", "Bluetooth not support");
+            errorExit("Error", "Bluetooth not support");
         } else {
             if (btAdapter.isEnabled()) {
                 Log.d(TAG, "...Bluetooth ON...");
@@ -394,13 +396,10 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
         }
-
         public void stop() {
             bStop = true;
         }
-
     }
 */
 
@@ -528,9 +527,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
                 mReadThread = new ReadInput();
                 mSendThread = new SendOut();
             }
-
             progressDialog.dismiss();
         }
-
     } */
 }
