@@ -7,7 +7,10 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.mawsom.mawsom.mawsomnobl.data.Conditions;
+import com.mawsom.mawsom.mawsomnobl.data.Schedule;
 import com.mawsom.mawsom.mawsomnobl.data.ScheduleEntry;
+import com.mawsom.mawsom.mawsomnobl.data.Schedules;
 import com.mawsom.mawsom.mawsomnobl.data.Settings;
 import com.mawsom.mawsom.mawsomnobl.utils.Utils;
 import java.util.ArrayList;

@@ -13,8 +13,6 @@ public class Schedules extends ArrayList<Schedule> {
     private static Schedules current;
 
 
-
-
     public static Schedules getCurrent() {
         if (current==null) current=new Schedules();
         return current;
@@ -38,8 +36,6 @@ public class Schedules extends ArrayList<Schedule> {
         }
         return null;
     }
-
-
 
     public void remove(String scheduleName)
     {
