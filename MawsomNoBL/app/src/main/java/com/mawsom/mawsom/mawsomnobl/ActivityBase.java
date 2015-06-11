@@ -42,9 +42,9 @@ public class ActivityBase extends ActionBarActivity {
         return true;
     }
 
-    @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        switch(item.getItemId()) {
+   // @Override
+   // public boolean onMenuItemSelected(int featureId, MenuItem item) {
+     //   switch(item.getItemId()) {
     	/*
     		case SETTEMP_ID:
 	        	setTemperature();
@@ -66,8 +66,8 @@ public class ActivityBase extends ActionBarActivity {
 	        case VIEW_STATS_ID:
 	        	viewStats();
 	        	break;*/
-        }
-        return super.onMenuItemSelected(featureId, item);
+       // }
+        //return super.onMenuItemSelected(featureId, item);
     }
 
     /*
@@ -110,4 +110,4 @@ public class ActivityBase extends ActionBarActivity {
     	} catch (Exception e) {}
     }
 	*/
-}
+//}
