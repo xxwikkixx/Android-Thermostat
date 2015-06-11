@@ -39,6 +39,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -98,12 +99,32 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
     private YahooWeatherService service;
     private ProgressDialog dialog;
 
+    //client.thermostat.client
+    TextView insideTempText;
+    TextView outsideTempText;
+    TextView targetTempText;
+    //TextView debugText;
+    TextView currentTime;
+    ImageView weatherImage;
+    ImageView settingsButton;
+    ImageView serverButton;
+    LinearLayout screenLayout;
+    HomeSchedule homeSchedule;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        //testing
+        insideTempText  = (TextView) findViewById(R.id.insideTempText);
+        outsideTempText  = (TextView) findViewById(R.id.outsideTempText);
+        targetTempText  = (TextView) findViewById(R.id.targetTempText);
+        //debugText  = (TextView) findViewById(R.id.debugText);
+        weatherImage = (ImageView) findViewById(R.id.weatherImage);
+        settingsButton = (ImageView) findViewById(R.id.settingsButton);
+        serverButton = (ImageView) findViewById(R.id.serverButton);
+        screenLayout = (LinearLayout) findViewById(R.id.screenLayout);
+        homeSchedule = (HomeSchedule) findViewById(R.id.homeSchedule);
 
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
