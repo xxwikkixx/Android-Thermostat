@@ -31,4 +31,9 @@
     <string name="scale">Temperature scale</string>
     <string name="scale_help">Sets whether the temperatures displayed are in Fahrenheit or Celsius.  This only changes how the temperatures are displayed within the client.  The server API alrways returns Farhenheit.</string>
     <string name="hardware_help">You need to indicate which version of the Android Thermostat hardware you are using.  If you had to make the circuit board yourself, it\'s Revision A, if you were able to order the pre-made board it\'s B.  Check the assembly instructions at AndroidThermostat.com if you are unsure.</string>
+
+    <string name="City">City</string>
+    <string name="Date">Date</string>
+    <string name="OutTemp">OutTemp</string>
+
 </resources>

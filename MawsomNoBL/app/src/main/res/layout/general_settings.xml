@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:atc="http://schemas.android.com/apk/res/com.androidthermostat.client"
+    xmlns:atc="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
@@ -29,7 +29,7 @@
                 android:layout_weight="75"
                 android:inputType="text" />
 
-            <com.androidthermostat.client.controls.HelpControl
+            <com.mawsom.mawsom.mawsomnobl.controls.HelpControl
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 atc:message_id="@string/name_help"
@@ -55,7 +55,7 @@
                 android:layout_weight="75"
                 android:inputType="text" />
 
-            <com.androidthermostat.client.controls.HelpControl
+            <com.mawsom.mawsom.mawsomnobl.controls.HelpControl
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 atc:message_id="@string/location_help"
@@ -81,7 +81,7 @@
                 android:layout_weight="75"
                 android:password="true" />
 
-            <com.androidthermostat.client.controls.HelpControl
+            <com.mawsom.mawsom.mawsomnobl.controls.HelpControl
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 atc:message_id="@string/password_help"
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="75" />
 
-            <com.androidthermostat.client.controls.HelpControl
+            <com.mawsom.mawsom.mawsomnobl.controls.HelpControl
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 atc:message_id="@string/forecast_url_help"
@@ -145,7 +145,7 @@
                     android:text="Celsius" />
             </RadioGroup>
 
-            <com.androidthermostat.client.controls.HelpControl
+            <com.mawsom.mawsom.mawsomnobl.controls.HelpControl
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 atc:message_id="@string/scale_help"
