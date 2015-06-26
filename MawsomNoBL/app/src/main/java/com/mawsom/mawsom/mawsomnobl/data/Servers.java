@@ -24,7 +24,7 @@ public class Servers extends ArrayList<Server> {
         if (current==null) current=new Servers();
         if (current.size()==0) current.add(new Server());
         return current;
-    };
+    }
 
 
     public Server getByIpPort(String ipAddress, int port)

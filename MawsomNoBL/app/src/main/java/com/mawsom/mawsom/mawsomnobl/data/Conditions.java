@@ -131,7 +131,7 @@ public class Conditions {
         public void run() {
             Conditions.getCurrent().load();
         }
-    };
+    }
 
 }
 

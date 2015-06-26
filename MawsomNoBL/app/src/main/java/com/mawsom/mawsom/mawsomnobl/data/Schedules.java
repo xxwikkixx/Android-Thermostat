@@ -16,7 +16,7 @@ public class Schedules extends ArrayList<Schedule> {
     public static Schedules getCurrent() {
         if (current==null) current=new Schedules();
         return current;
-    };
+    }
 
 
     public String[] getNames(boolean includeNone)

@@ -9,6 +9,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ToggleButton;
 import android.view.LayoutInflater;
+import android.R;
 
 import com.mawsom.mawsom.mawsomnobl.data.Settings;
 
@@ -30,7 +31,7 @@ public class FurnaceSettingsFragment extends Fragment {
 
     EditText cycleFanOnText;
     EditText cycleFanOffText;
-    ToggleButton cycleFanSwitch;;
+    ToggleButton cycleFanSwitch;
 
     View root;
 

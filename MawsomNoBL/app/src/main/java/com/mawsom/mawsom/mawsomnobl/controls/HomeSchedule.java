@@ -189,7 +189,7 @@ public class HomeSchedule extends View {
         int minutes = new Date().getHours() * 60 + new Date().getMinutes();
         double percent = minutes / 1440.0;
         int x = (int) (percent * width);
-        int y = (int) height / 2;
+        int y = height / 2;
 
         if (Conditions.getCurrent().getInsideTemperature()>0)
         {
