@@ -1,5 +1,6 @@
 package com.mawsom.mawsom.mawsomnobl;
 
+import android.R;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -10,11 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
-
-//import com.example.thermostat.BluetoothActivity;
-//import com.example.thermostat.MainActivity;
-//import com.example.thermostat.R;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -115,7 +111,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
 
         insideTempText  = (TextView) findViewById(R.id.insideTempText);
         outsideTempText  = (TextView) findViewById(R.id.outsideTempText);
