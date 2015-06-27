@@ -4,7 +4,6 @@ package com.mawsom.mawsom.mawsomnobl;
  * Created by Waqas on 6/26/2015.
  */
 
-import android.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;

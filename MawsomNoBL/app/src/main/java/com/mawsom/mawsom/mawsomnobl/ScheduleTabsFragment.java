@@ -1,12 +1,6 @@
 package com.mawsom.mawsom.mawsomnobl;
 
-/**
- * Created by Waqas on 6/26/2015.
- */
-
 import java.util.HashMap;
-
-import android.R;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +10,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.TabHost;
 
+/**
+ * Created by Waqas on 6/26/2015.
+ */
 
 public class ScheduleTabsFragment extends ActionBarActivity {
     TabHost mTabHost;

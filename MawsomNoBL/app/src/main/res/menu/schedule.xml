@@ -1,37 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res-auto" >
-
-    <item
-        android:id="@+id/menu_sunday"
-        android:showAsAction="ifRoom|withText"
-        android:title="Sun."/>
-    <item
-        android:id="@+id/menu_monday"
-        android:showAsAction="ifRoom|withText"
-        android:title="Mon."/>
-    <item
-        android:id="@+id/menu_tuesday"
-        android:showAsAction="ifRoom|withText"
-        android:title="Tue."/>
-    <item
-        android:id="@+id/menu_wednesday"
-        android:showAsAction="ifRoom|withText"
-        android:title="Wed."/>
-    <item
-        android:id="@+id/menu_thursday"
-        android:showAsAction="ifRoom|withText"
-        android:title="Thu."/>
-    <item
-        android:id="@+id/menu_friday"
-        android:showAsAction="ifRoom|withText"
-        android:title="Fri."/>
-    <item
-        android:id="@+id/menu_saturday"
-        android:showAsAction="ifRoom|withText"
-        android:title="Sat."/>
-    <item
-        android:id="@+id/menu_settings"
-        android:showAsAction="ifRoom|withText"
-        android:title="Settings"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 </menu>

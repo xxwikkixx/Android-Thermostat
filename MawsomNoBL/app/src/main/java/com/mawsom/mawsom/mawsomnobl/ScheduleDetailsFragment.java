@@ -1,6 +1,5 @@
 package com.mawsom.mawsom.mawsomnobl;
 
-import android.R;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Fragment;

@@ -1,6 +1,5 @@
 package com.mawsom.mawsom.mawsomnobl;
 
-import android.R;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -111,7 +110,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
         insideTempText  = (TextView) findViewById(R.id.insideTempText);
         outsideTempText  = (TextView) findViewById(R.id.outsideTempText);

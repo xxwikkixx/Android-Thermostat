@@ -1,5 +1,6 @@
 package com.mawsom.mawsom.mawsomnobl;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
  * Created by Waqas on 6/11/2015.
  */
 
-public class ScheduleDayFragment extends ActionBarActivity {
+public class ScheduleDayFragment {
 
     private String[] daysOfWeek = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 
@@ -33,12 +34,6 @@ public class ScheduleDayFragment extends ActionBarActivity {
     ArrayList<ScheduleEntry> entries;
     ListView entryList;
     ScheduleEntryAdapter scheduleEntryAdapter;
-
-
-    public ScheduleDayFragment()
-    {
-
-    }
 
     public ScheduleDayFragment(int scheduleIndex, int dayOfWeek)
     {

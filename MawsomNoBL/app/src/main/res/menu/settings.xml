@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res-auto" >
+<menu xmlns:android="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <item
+  <!--  <item
         android:id="@+id/menu_general"
         android:showAsAction="ifRoom|withText"
-        android:title="General"/>
+        android:title="General"
+        tools:ignore="MenuTitle"/>
     <item
         android:id="@+id/menu_usage"
         android:showAsAction="ifRoom|withText"
-        android:title="Usage"/>
+        android:title="Usage"
+        tools:ignore="MenuTitle"/>
     <item
         android:id="@+id/menu_furnace"
         android:showAsAction="ifRoom|withText"
-        android:title="Equipment"/>
+        android:title="Equipment"
+        tools:ignore="MenuTitle"/>-->
 
 </menu>

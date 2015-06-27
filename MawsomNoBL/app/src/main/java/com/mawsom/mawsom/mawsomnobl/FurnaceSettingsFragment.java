@@ -9,7 +9,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ToggleButton;
 import android.view.LayoutInflater;
-import android.R;
 
 import com.mawsom.mawsom.mawsomnobl.data.Settings;
 

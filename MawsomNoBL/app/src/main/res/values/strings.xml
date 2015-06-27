@@ -35,5 +35,6 @@
     <string name="City">City</string>
     <string name="Date">Date</string>
     <string name="OutTemp">OutTemp</string>
+    <string name="action_settings">action_settings</string>
 
 </resources>

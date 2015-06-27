@@ -3,7 +3,7 @@ package com.mawsom.mawsom.mawsomnobl;
 /**
  * Created by Waqas on 6/26/2015.
  */
-import android.R;
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
