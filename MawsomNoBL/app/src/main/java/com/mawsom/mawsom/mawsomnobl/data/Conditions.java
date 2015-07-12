@@ -68,7 +68,7 @@ public class Conditions {
     public void setOutsideTemperature(double outsideTemperature) { this.outsideTemperature = outsideTemperature; }
     public void setMessage(String message) {
         this.message=message;
-        if (this.message!=null && this.message!="") Utils.debugText = message;
+        if (this.message!=null && this.message != "") Utils.debugText = message;
     }
 
     public static Conditions getCurrent()

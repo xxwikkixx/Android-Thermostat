@@ -148,8 +148,6 @@ public class Settings {
 
     public static void load()
     {
-
-
         try {
             String json = Utils.getUrlContents(Servers.getBaseUrl() + "/api/settings" + Servers.getBaseParams());
             if (!json.equals(Settings.getCurrent().getJson()))

@@ -8,7 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.R;
+
+import com.mawsom.mawsom.mawsomnobl.R;
 
 /**
  * Created by Waqas on 6/11/2015.

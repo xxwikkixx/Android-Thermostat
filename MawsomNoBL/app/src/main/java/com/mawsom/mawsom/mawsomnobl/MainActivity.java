@@ -2,6 +2,7 @@ package com.mawsom.mawsom.mawsomnobl;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,6 +10,10 @@ import android.view.MenuItem;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.UUID;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -30,6 +35,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -41,9 +47,13 @@ import android.widget.ToggleButton;
 
 import com.mawsom.mawsom.mawsomnobl.controls.HomeSchedule;
 import com.mawsom.mawsom.mawsomnobl.data.Channel;
+import com.mawsom.mawsom.mawsomnobl.data.Conditions;
 import com.mawsom.mawsom.mawsomnobl.data.Item;
+import com.mawsom.mawsom.mawsomnobl.data.Schedules;
+import com.mawsom.mawsom.mawsomnobl.data.Servers;
 import com.mawsom.mawsom.mawsomnobl.service.WeatherServiceCallBack;
 import com.mawsom.mawsom.mawsomnobl.service.YahooWeatherService;
+import com.mawsom.mawsom.mawsomnobl.utils.Utils;
 
 /**
  * Created by Waqas
@@ -55,13 +65,29 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
     private int mMaxChars = 50000;//Default
     private UUID mDeviceUUID;
     private BluetoothSocket mBTSocket;
-   // private ReadInput mReadThread = null;
-   // private SendOut mSendThread = null;
+   //private ReadInput mReadThread = null;
+   //private SendOut mSendThread = null;
 
     private boolean mIsUserInitiatedDisconnect = false;
     private boolean mIsBluetoothConnected = false;
     private BluetoothDevice mDevice;
     private ProgressDialog progressDialog;
+
+    Handler refreshHandler;
+
+    Timer conditionsTimer;
+    Timer settingsTimer;
+
+    String previousConditionsJson = "";
+    String previousSettingsJson = "";
+    //String previousDebugText = "";
+    String previousDisplayTime = "";
+    private static final int ACTIVITY_SETTEMP=100;
+    private static final int ACTIVITY_SCHEDULE=101;
+    private static final int ACTIVITY_SETTINGS=102;
+    private static final int ACTIVITY_SELECT_SERVER=103;
+
+    SimpleDateFormat formatter = new SimpleDateFormat("h:mma");
 
     //buttons
     Button butUp;
@@ -91,7 +117,6 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
     private ImageView weatherIconImageView;
     private TextView OutTempView;
     private TextView cityTextView;
-
     private YahooWeatherService service;
     private ProgressDialog dialog;
 
@@ -102,7 +127,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
     //TextView debugText;
     TextView currentTime;
     ImageView weatherImage;
-    ImageView settingsButton;
+    Button settingsButton;
     ImageView serverButton;
     LinearLayout screenLayout;
     HomeSchedule homeSchedule;
@@ -112,18 +137,18 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        insideTempText  = (TextView) findViewById(R.id.insideTempText);
-        outsideTempText  = (TextView) findViewById(R.id.outsideTempText);
-        targetTempText  = (TextView) findViewById(R.id.targetTempText);
+        //insideTempText  = (TextView) findViewById(R.id.insideTempText);
+        //outsideTempText  = (TextView) findViewById(R.id.outsideTempText);
+        //targetTempText  = (TextView) findViewById(R.id.targetTempText);
         //debugText  = (TextView) findViewById(R.id.debugText);
-        weatherImage = (ImageView) findViewById(R.id.weatherImage);
-        settingsButton = (ImageView) findViewById(R.id.settingsButton);
-        serverButton = (ImageView) findViewById(R.id.serverButton);
+        //weatherImage = (ImageView) findViewById(R.id.weatherImage);
+        settingsButton = (Button) findViewById(R.id.settingsButton);
+        //serverButton = (ImageView) findViewById(R.id.serverButton);
         screenLayout = (LinearLayout) findViewById(R.id.screenLayout);
-        homeSchedule = (HomeSchedule) findViewById(R.id.homeSchedule);
+        //homeSchedule = (HomeSchedule) findViewById(R.id.homeSchedule);
 
-        Intent intent = getIntent();
-        Bundle b = intent.getExtras();
+        //Intent intent = getIntent();
+        //Bundle b = intent.getExtras();
         //mDevice = b.getParcelable(BluetoothActivity.DEVICE_EXTRA);
         //mDeviceUUID = UUID.fromString(b.getString(BluetoothActivity.DEVICE_UUID));
         //mMaxChars = b.getInt(BluetoothActivity.BUFFER_SIZE);
@@ -149,30 +174,51 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         //checking bluetooth state
         //checkBTState();
 
-
         weatherIconImageView = (ImageView) findViewById(R.id.weatherIcon);
         OutTempView = (TextView) findViewById(R.id.textOutTemp);
         cityTextView = (TextView) findViewById(R.id.textCIty);
-
         service = new YahooWeatherService(this);
         //dialog.setMessage("Loading...");
-
-
         //need to send in location to this service by geolocation in android service
         service.refreshWeather("San Diego, CA");
 
-        tempCheck();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        Servers.load(this);
+
+        Utils.debugText = "Loading";
+        initScreen();
+
+        new Thread(new Runnable() {
+            public void run() {
+                Schedules.load();
+                Settings.load();
+            }
+        }).start();
+
+        refreshHandler= new Handler();
+        refreshHandler.postDelayed(refreshRunnable, 1000);
+
+        conditionsTimer = new Timer();
+        conditionsTimer.schedule(new ConditionsTimerTask(), 1000, 3000);
+
+        settingsTimer = new Timer();
+        settingsTimer.schedule(new SettingsTimerTask(), 1200, 5000);
+
+        //settings button to start settings activity
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                showSettings();
+            }
+        });
 
         //button Up to send data to arduino
         butUp.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-
-                if(targetTemp != RoomTemp)
-                {
+                if(targetTemp != RoomTemp){
                     //data = "2";
                 }
-                else
-                {
+                else{
                     //data = "2";
                 }
             }
@@ -199,17 +245,12 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         butDown.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
-                if(targetTemp != RoomTemp)
-                {
-                    //temp = "1";
-                    //break;
+                if(targetTemp != RoomTemp){
+                    //
                 }
-                else
-                {
-                    //temp = "0";
-                    //break;
+                else{
+                    //
                 }
-
             }
         });
 
@@ -231,28 +272,9 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         });
     }
 
-    //Starts bluetooth activity to connect to arduino
-    public void ConnectBlue(View view)
-    {
-        //Intent Bluebutton = new Intent(MainActivity.this, BluetoothActivity.class);
-        //finish(); //stops the main activity and starts the bluetooth activity
-        //startActivity(Bluebutton);
-    }
-
-    //checking if bluetooth is on or off
-    private void checkBTState() {
-        // Check for Bluetooth support and then check to make sure it is turned on
-        if(btAdapter==null) {
-            errorExit("Error", "Bluetooth not support");
-        } else {
-            if (btAdapter.isEnabled()) {
-                Log.d(TAG, "...Bluetooth ON...");
-            } else {
-                //Prompt user to turn on Bluetooth
-                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                startActivityForResult(enableBtIntent, 1);
-            }
-        }
+    private void showSettings(){
+        Intent i = new Intent(this, SettingsActivity.class);
+        startActivityForResult(i, ACTIVITY_SETTINGS);
     }
 
     //error for bluetooth
@@ -279,20 +301,15 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         }
     }
 
-    /*
-     * will be moving it to the tempcheck.java actiivty and add algorithms to make it effiecient
-     *
-     */
-    public void tempCheck(){
-
-        if(targetTemp != RoomTemp)
-        {
-            data = "1";
-        }
-        if(targetTemp == RoomTemp)
-        {
-            data = "2";
-        }
+    @Override
+    protected void onResume() {
+        /*if (mBTSocket == null || !mIsBluetoothConnected) {
+            new ConnectBT().execute();
+            //need to setup sending strings again once the activity resumes for bluetooth
+        }*/
+        Log.d(TAG, "Resumed");
+        super.onResume();
+        updateScreen(true);
     }
 
     @Override
@@ -312,7 +329,125 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         //Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
     }
 
+    public void showWeatherDetails()
+    {
+        try{
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(Conditions.getCurrent().getWeatherForecastUrl()));
+            startActivity(i);
+        } catch (Exception ex) {}
+    }
 
+    private void updateSettings()
+    {
+        Settings.load();
+    }
+
+    public void initScreen()
+    {
+        insideTempText.setText( "" );
+        outsideTempText.setText( "" );
+        targetTempText.setText( "Not Connected to Server" );
+        //debugText.setText(Utils.debugText);
+    }
+
+    public void updateScreen(boolean forceRefresh)
+    {
+
+        Conditions conditions = Conditions.getCurrent();
+        Settings settings = Settings.getCurrent();
+
+        //Updating these fields every second creates unnecessary processor usage.  Only update the fields
+        //if the values have changed.
+
+        if (forceRefresh || !conditions.getJson().equals(previousConditionsJson) || !settings.getJson().equals(previousSettingsJson))
+        {
+
+            //insideTempText.setText( String.valueOf(conditions.getInsideTemperature()) + "° F" );
+            //outsideTempText.setText( String.valueOf(conditions.getOutsideTemperature()) + "° F" );
+            insideTempText.setText( conditions.getDisplayInsideTemperature() );
+            outsideTempText.setText( conditions.getDisplayOutsideTemperature() );
+
+            targetTempText.setText(settings.getSummary());
+            if (conditions.getWeatherImage()!=null) weatherImage.setImageBitmap(conditions.getWeatherImage());
+
+            previousConditionsJson = conditions.getJson();
+            previousSettingsJson = settings.getJson();
+            //previousDebugText = Utils.debugText;
+            homeSchedule.refresh();
+
+            if (conditions.getState().equals("Cool"))
+            {
+                screenLayout.setBackgroundResource(R.drawable.background_blue);
+            } else if (conditions.getState().equals("Heat"))
+            {
+                screenLayout.setBackgroundResource(R.drawable.background_red);
+            } else
+            {
+                screenLayout.setBackgroundResource(R.drawable.background_black);
+            }
+
+
+        }
+
+
+        String displayTime = formatter.format(new Date()).toLowerCase().replace("m", "");
+        if (!displayTime.equals(previousDisplayTime))
+        {
+            currentTime.setText(displayTime);
+            previousDisplayTime=displayTime;
+        }
+
+    }
+
+    class SettingsTimerTask extends TimerTask {
+        @Override
+        public void run() {
+            updateSettings();
+        }
+    };
+
+    class ConditionsTimerTask extends TimerTask {
+        @Override
+        public void run() {
+            Conditions.getCurrent().load();
+        }
+    };
+
+    private Runnable refreshRunnable = new Runnable() {
+        public void run() {
+            try {
+                updateScreen(false);
+            } catch (Exception e) {}
+            refreshHandler.postDelayed(this, 1000);
+        }
+    };
+
+/*
+    //Starts bluetooth activity to connect to arduino
+    public void ConnectBlue(View view)
+    {
+        //Intent Bluebutton = new Intent(MainActivity.this, BluetoothActivity.class);
+        //finish(); //stops the main activity and starts the bluetooth activity
+        //startActivity(Bluebutton);
+    }
+
+    //checking if bluetooth is on or off
+    private void checkBTState() {
+        // Check for Bluetooth support and then check to make sure it is turned on
+        if(btAdapter==null) {
+            errorExit("Error", "Bluetooth not support");
+        } else {
+            if (btAdapter.isEnabled()) {
+                Log.d(TAG, "...Bluetooth ON...");
+            } else {
+                //Prompt user to turn on Bluetooth
+                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableBtIntent, 1);
+            }
+        }
+    }
+*/
     /*
      * Sending the strings out to arduino via bluetooth
      *
@@ -483,16 +618,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         super.onPause();
     }
 
-    @Override
-    protected void onResume() {
-        if (mBTSocket == null || !mIsBluetoothConnected) {
-            new ConnectBT().execute();
 
-            //need to setup sending strings again once the activity resumes.
-        }
-        Log.d(TAG, "Resumed");
-        super.onResume();
-    }
 
     @Override
     protected void onStop() {

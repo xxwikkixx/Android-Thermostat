@@ -48,21 +48,6 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
-            android:name="SchedulesActivity"
-            android:label="Schedules"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name="ScheduleActivity"
-            android:label="Edit Schedule"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name="ScheduleTabsFragment"
-            android:label="Edit Schedule"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
             android:name="CopyScheduleActivity"
             android:label="Copy this day&apos;s schedule to..."
             android:screenOrientation="landscape"
