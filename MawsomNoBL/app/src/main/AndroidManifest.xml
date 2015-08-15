@@ -52,11 +52,6 @@
             android:label="Copy this day&apos;s schedule to..."
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name="ScheduleEntryEditActivity"
-            android:label="Edit Schedule Entry"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
 
     </application>
 

@@ -224,4 +224,13 @@
         android:layout_alignRight="@+id/textDat"
         android:layout_alignEnd="@+id/textDat" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/outsideTempText"
+        android:layout_above="@+id/textDat"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

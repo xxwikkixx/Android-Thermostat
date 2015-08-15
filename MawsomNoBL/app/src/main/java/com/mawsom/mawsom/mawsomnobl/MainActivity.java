@@ -96,7 +96,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
 
     //text
     TextView textUser;
-    private TextView mTxtReceive;
+    TextView mTxtReceive;
 
     //data from the arduino stored
     int targetTemp = 70;
@@ -137,9 +137,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        //insideTempText  = (TextView) findViewById(R.id.insideTempText);
-        //outsideTempText  = (TextView) findViewById(R.id.outsideTempText);
-        //targetTempText  = (TextView) findViewById(R.id.targetTempText);
+        outsideTempText  = (TextView) findViewById(R.id.outsideTempText);
         //debugText  = (TextView) findViewById(R.id.debugText);
         //weatherImage = (ImageView) findViewById(R.id.weatherImage);
         settingsButton = (Button) findViewById(R.id.settingsButton);
@@ -163,10 +161,10 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         //Toggle toggleHeat= (ToggleButton) findViewById(R.id.toggleHeat);
 
         //text view to show the tempreature
-        mTxtReceive = (TextView) findViewById(R.id.textRoomTemp);
-        textUser = (TextView) findViewById(R.id.textUserTemp);
+        insideTempText = (TextView) findViewById(R.id.textRoomTemp); //mTxtReceive
+        targetTempText = (TextView) findViewById(R.id.textUserTemp); //textUser
 
-        textUser.setText(targetTemp + "\u00B0");
+        //textUser.setText(targetTemp + "\u00B0");
 
         //initilizing the bluetooth adapter
         //btAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -187,7 +185,7 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         Servers.load(this);
 
         Utils.debugText = "Loading";
-        initScreen();
+        //initScreen();
 
         new Thread(new Runnable() {
             public void run() {
@@ -272,8 +270,8 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
         });
     }
 
-    private void showSettings(){
-        Intent i = new Intent(this, SettingsActivity.class);
+    private void showSettings(){//this
+        Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
         startActivityForResult(i, ACTIVITY_SETTINGS);
     }
 
@@ -374,9 +372,9 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
             previousConditionsJson = conditions.getJson();
             previousSettingsJson = settings.getJson();
             //previousDebugText = Utils.debugText;
-            homeSchedule.refresh();
+//            homeSchedule.refresh();
 
-            if (conditions.getState().equals("Cool"))
+/*            if (conditions.getState().equals("Cool"))
             {
                 screenLayout.setBackgroundResource(R.drawable.background_blue);
             } else if (conditions.getState().equals("Heat"))
@@ -385,18 +383,18 @@ public class MainActivity extends Activity implements OnClickListener, WeatherSe
             } else
             {
                 screenLayout.setBackgroundResource(R.drawable.background_black);
-            }
+            }*/
 
 
         }
 
 
-        String displayTime = formatter.format(new Date()).toLowerCase().replace("m", "");
+/*        String displayTime = formatter.format(new Date()).toLowerCase().replace("m", "");
         if (!displayTime.equals(previousDisplayTime))
         {
             currentTime.setText(displayTime);
             previousDisplayTime=displayTime;
-        }
+        }*/
 
     }
 
