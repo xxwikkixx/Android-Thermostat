@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
 
 /**
@@ -14,6 +15,7 @@ import android.support.v4.view.ViewPager;
 
 public class SettingsActivity extends FragmentActivity{
 
+    FragmentTabHost mTabhost;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,23 @@ public class SettingsActivity extends FragmentActivity{
         //setCurrentTab(new GeneralSettingsFragment());
         //switchTab(new GeneralSettingsFragment());
 
+        mTabhost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+        mTabhost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
+
+
         //need to  setup tabs for the fragment activities
+        mTabhost.addTab(
+                mTabhost.newTabSpec("general").setIndicator("General", null),
+                GeneralSettingsFragment.class, null
+        );
+        mTabhost.addTab(
+                mTabhost.newTabSpec("usage").setIndicator("Usage", null),
+                UsageSettingsFragment.class, null
+        );
+        mTabhost.addTab(
+                mTabhost.newTabSpec("furnace").setIndicator("Furnace", null),
+                FurnaceSettingsFragment.class, null
+        );
 
     }
 
