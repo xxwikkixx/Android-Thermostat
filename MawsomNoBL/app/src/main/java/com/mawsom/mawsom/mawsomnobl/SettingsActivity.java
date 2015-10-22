@@ -20,12 +20,12 @@ public class SettingsActivity extends FragmentActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.settings);
+        setContentView(R.layout.settings2);
 
         Bundle extras = getIntent().getExtras();
         //setCurrentTab(new GeneralSettingsFragment());
         //switchTab(new GeneralSettingsFragment());
-
+/*
         mTabhost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mTabhost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
 
@@ -42,7 +42,7 @@ public class SettingsActivity extends FragmentActivity{
         mTabhost.addTab(
                 mTabhost.newTabSpec("furnace").setIndicator("Furnace", null),
                 FurnaceSettingsFragment.class, null
-        );
+        );*/
 
     }
 
