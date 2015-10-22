@@ -2,47 +2,47 @@ package com.mawsom.mawsom.mawsomnobl;
 
 
 import android.app.ActionBar;
+import android.app.TabActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTabHost;
-import android.support.v4.view.ViewPager;
+import android.widget.TabHost.*;
+import android.widget.TabHost;
 
 /**
  * Created by Waqas on 6/26/2015.
  */
 
-public class SettingsActivity extends FragmentActivity{
+public class SettingsActivity extends TabActivity{
 
-    FragmentTabHost mTabhost;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.settings);
-
         Bundle extras = getIntent().getExtras();
         //setCurrentTab(new GeneralSettingsFragment());
         //switchTab(new GeneralSettingsFragment());
 
-        mTabhost = (FragmentTabHost) findViewById(android.R.id.tabhost);
-        mTabhost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
+        TabHost tabHost = (TabHost) findViewById(android.R.id.tabHost1);
+        tabHost.setup();
 
+        TabSpec general = tabHost.newTabSpec("General");
+        TabSpec usage = tabHost.newTabSpec("Usage");
+        TabSpec furnace = tabHost.newTabSpec("Furnace");
 
-        //need to  setup tabs for the fragment activities
-        mTabhost.addTab(
-                mTabhost.newTabSpec("general").setIndicator("General", null),
-                GeneralSettingsFragment.class, null
-        );
-        mTabhost.addTab(
-                mTabhost.newTabSpec("usage").setIndicator("Usage", null),
-                UsageSettingsFragment.class, null
-        );
-        mTabhost.addTab(
-                mTabhost.newTabSpec("furnace").setIndicator("Furnace", null),
-                FurnaceSettingsFragment.class, null
-        );
+        general.setIndicator("General");
+        general.setContent(new Intent(this, GeneralSettingsFragment.class));
+
+        usage.setIndicator("Usage");
+        usage.setContent(new Intent(this, UsageSettingsFragment.class));
+
+        furnace.setIndicator("Furnace");
+        furnace.setContent(new Intent(this, FurnaceSettingsFragment.class));
+
+        tabHost.addTab(general);
+        tabHost.addTab(usage);
+        tabHost.addTab(furnace);
 
     }
 
