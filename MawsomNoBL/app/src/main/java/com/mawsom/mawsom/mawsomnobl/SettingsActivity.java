@@ -5,49 +5,23 @@ import android.app.ActionBar;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TabHost.*;
-import android.widget.TabHost;
+import android.support.v4.app.FragmentActivity;
+
 
 /**
  * Created by Waqas on 6/26/2015.
  */
 
-public class SettingsActivity extends TabActivity{
-
-
+public class SettingsActivity extends FragmentActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-<<<<<<< HEAD
-        setContentView(R.layout.settings);
-        Bundle extras = getIntent().getExtras();
-        //setCurrentTab(new GeneralSettingsFragment());
-        //switchTab(new GeneralSettingsFragment());
-
-        TabHost tabHost = (TabHost) findViewById(android.R.id.tabHost1);
-        tabHost.setup();
-
-        TabSpec general = tabHost.newTabSpec("General");
-        TabSpec usage = tabHost.newTabSpec("Usage");
-        TabSpec furnace = tabHost.newTabSpec("Furnace");
-
-        general.setIndicator("General");
-        general.setContent(new Intent(this, GeneralSettingsFragment.class));
-
-        usage.setIndicator("Usage");
-        usage.setContent(new Intent(this, UsageSettingsFragment.class));
-
-        furnace.setIndicator("Furnace");
-        furnace.setContent(new Intent(this, FurnaceSettingsFragment.class));
-
-        tabHost.addTab(general);
-        tabHost.addTab(usage);
-        tabHost.addTab(furnace);
-=======
         setContentView(R.layout.settings2);
-
         Bundle extras = getIntent().getExtras();
+
+
+
         //setCurrentTab(new GeneralSettingsFragment());
         //switchTab(new GeneralSettingsFragment());
 /*
@@ -68,8 +42,6 @@ public class SettingsActivity extends TabActivity{
                 mTabhost.newTabSpec("furnace").setIndicator("Furnace", null),
                 FurnaceSettingsFragment.class, null
         );*/
->>>>>>> 9be2404ecb6b152643ce85c759a3305ba8b5edbf
-
     }
 
 }

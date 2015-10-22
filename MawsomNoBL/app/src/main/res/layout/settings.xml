@@ -5,49 +5,6 @@
     android:orientation="vertical" >
 
 
-<<<<<<< HEAD
-    <TabHost
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tabHost1">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></TabWidget>
-
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:id="@+id/linearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
-            </FrameLayout>
-        </LinearLayout>
-    </TabHost>
-=======
->>>>>>> 9be2404ecb6b152643ce85c759a3305ba8b5edbf
 </LinearLayout>
 <!--
 <android.support.v4.app.FragmentTabHost
