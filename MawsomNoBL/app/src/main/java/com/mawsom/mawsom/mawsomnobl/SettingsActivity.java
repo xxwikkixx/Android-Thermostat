@@ -19,6 +19,7 @@ public class SettingsActivity extends TabActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+<<<<<<< HEAD
         setContentView(R.layout.settings);
         Bundle extras = getIntent().getExtras();
         //setCurrentTab(new GeneralSettingsFragment());
@@ -43,6 +44,31 @@ public class SettingsActivity extends TabActivity{
         tabHost.addTab(general);
         tabHost.addTab(usage);
         tabHost.addTab(furnace);
+=======
+        setContentView(R.layout.settings2);
+
+        Bundle extras = getIntent().getExtras();
+        //setCurrentTab(new GeneralSettingsFragment());
+        //switchTab(new GeneralSettingsFragment());
+/*
+        mTabhost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+        mTabhost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
+
+
+        //need to  setup tabs for the fragment activities
+        mTabhost.addTab(
+                mTabhost.newTabSpec("general").setIndicator("General", null),
+                GeneralSettingsFragment.class, null
+        );
+        mTabhost.addTab(
+                mTabhost.newTabSpec("usage").setIndicator("Usage", null),
+                UsageSettingsFragment.class, null
+        );
+        mTabhost.addTab(
+                mTabhost.newTabSpec("furnace").setIndicator("Furnace", null),
+                FurnaceSettingsFragment.class, null
+        );*/
+>>>>>>> 9be2404ecb6b152643ce85c759a3305ba8b5edbf
 
     }
 

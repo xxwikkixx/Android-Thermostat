@@ -5,6 +5,7 @@
     android:orientation="vertical" >
 
 
+<<<<<<< HEAD
     <TabHost
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,6 +46,8 @@
             </FrameLayout>
         </LinearLayout>
     </TabHost>
+=======
+>>>>>>> 9be2404ecb6b152643ce85c759a3305ba8b5edbf
 </LinearLayout>
 <!--
 <android.support.v4.app.FragmentTabHost
@@ -52,6 +55,13 @@
     android:id="@android:id/tabhost"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+
+    copy this in the top
+    <fragment
+        android:id="@+id/fragmentHolder"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        class="com.mawsom.mawsom.mawsomnobl.BlankFragment" />
 
     <LinearLayout
         android:layout_width="match_parent"
